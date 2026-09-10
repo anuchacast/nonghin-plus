@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b6b3a">
+<title>หนองหินพลัส | แจ้งเรื่องร้องเรียน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hd">
+  <h1>หนองหินพลัส</h1>
+  <p>ระบบแจ้งเรื่อง–ติดตามสถานะออนไลน์</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="report">แจ้งเรื่อง</button>
+  <button class="tab" data-tab="track">ติดตาม</button>
+  <button class="tab" data-tab="contact">ติดต่อ</button>
+</nav>
+
+<main>
+
+  <section id="report" class="pane active">
+    <form id="caseForm" novalidate>
+      <label>ประเภทเรื่อง <b>*</b>
+        <select name="category" required>
+          <option value="">— กำลังโหลด —</option>
+        </select>
+      </label>
+
+      <label>หัวข้อ <b>*</b>
+        <input name="title" maxlength="120" placeholder="เช่น ไฟถนนดับ ซอย 5" required>
+      </label>
+
+      <label>รายละเอียด
+        <textarea name="detail" rows="4" maxlength="1000" placeholder="อธิบายเพิ่มเติม…"></textarea>
+      </label>
+
+      <label>สถานที่ / ที่อยู่
+        <input name="address" maxlength="200" placeholder="หมู่บ้าน / ซอย / จุดสังเกต">
+      </label>
+
+      <button type="button" id="btnGeo" class="btn ghost">📍 ใช้ตำแหน่งปัจจุบัน</button>
+      <p id="geoTxt" class="hint"></p>
+
+      <label>ชื่อผู้แจ้ง
+        <input name="name" maxlength="80" placeholder="ชื่อ–นามสกุล">
+      </label>
+
+      <label>เบอร์โทร <b>*</b>
+        <input name="phone" type="tel" inputmode="numeric" maxlength="15"
+               placeholder="0812345678" required>
+      </label>
+
+      <label>แนบรูปภาพ
+        <input type="file" id="photo" accept="image/*" capture="environment">
+      </label>
+      <img id="preview" class="preview" hidden alt="ตัวอย่างรูปภาพ">
+
+      <button class="btn primary" id="btnSubmit" type="submit">ส่งเรื่องร้องเรียน</button>
+      <p class="hint">* ข้อมูลของท่านได้รับการคุ้มครองตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA)</p>
+    </form>
+
+    <div id="okBox" class="okbox" hidden></div>
+  </section>
+
+  <section id="track" class="pane">
+    <label>รหัสเรื่อง
+      <input id="trackId" placeholder="เช่น NH260910-1234" autocomplete="off">
+    </label>
+    <button class="btn primary" id="btnTrack">ตรวจสอบสถานะ</button>
+    <div id="trackBox"></div>
+  </section>
+
+  <section id="contact" class="pane">
+    <div class="card">
+      <h3>เทศบาลตำบลหนองหิน</h3>
+      <p>เวลาทำการ จันทร์–ศุกร์ 08.30–16.30 น.</p>
+      <a class="btn call" href="tel:042852182">📞 โทรออก 042-852182</a>
+      <a class="btn ghost" href="https://maps.google.com/?q=เทศบาลตำบลหนองหิน"
+         target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="loading" class="loading" hidden><div class="spin"></div></div>
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

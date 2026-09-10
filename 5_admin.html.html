@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#123a5c">
+<title>ระบบจัดการ | หนองหินพลัส</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hd hd-admin">
+  <h1>⚙️ ระบบจัดการเจ้าหน้าที่</h1>
+  <p>หนองหินพลัส — Back Office</p>
+</header>
+
+<main id="loginView" class="admin-wrap">
+  <div class="card">
+    <h3>เข้าสู่ระบบ</h3>
+    <p>สำหรับเจ้าหน้าที่ผู้ได้รับมอบหมายเท่านั้น</p>
+    <label>รหัสผ่านเจ้าหน้าที่
+      <input type="password" id="adminKey" placeholder="••••••••" autocomplete="current-password">
+    </label>
+    <label class="chk"><input type="checkbox" id="remember" checked> จดจำในเครื่องนี้</label>
+    <button class="btn primary" id="btnLogin">เข้าสู่ระบบ</button>
+  </div>
+</main>
+
+<main id="panelView" class="admin-wrap" hidden>
+  <div class="stats" id="stats"></div>
+
+  <div class="toolbar">
+    <select id="fStatus"><option value="">ทุกสถานะ</option></select>
+    <select id="fCat"><option value="">ทุกประเภท</option></select>
+    <input id="fSearch" placeholder="🔍 ค้นหารหัส / หัวข้อ">
+    <button class="btn ghost sm" id="btnReload">↻ รีเฟรช</button>
+    <button class="btn ghost sm" id="btnCsv">⬇ CSV</button>
+    <button class="btn ghost sm danger" id="btnLogout">ออกจากระบบ</button>
+  </div>
+
+  <div id="list"></div>
+</main>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-box">
+    <h3>อัปเดตสถานะ</h3>
+    <p class="hint" id="mCase"></p>
+    <label>สถานะใหม่
+      <select id="mStatus"></select>
+    </label>
+    <label>หมายเหตุเจ้าหน้าที่
+      <textarea id="mNote" rows="3" placeholder="เช่น ส่งทีมช่างเข้าตรวจสอบแล้ว"></textarea>
+    </label>
+    <button class="btn primary" id="mSave">บันทึก</button>
+    <button class="btn ghost" id="mCancel">ยกเลิก</button>
+  </div>
+</div>
+
+<div id="loading" class="loading" hidden><div class="spin"></div></div>
+<div id="toast" class="toast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
