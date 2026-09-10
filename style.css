@@ -2,6 +2,10 @@
   --c:#0b6b3a; --c2:#0d8a4a; --admin:#123a5c;
   --bg:#f4f6f5; --line:#dfe4e1; --r:14px;
 }
+/* ===== FIX: ให้ hidden ชนะทุก display rule ===== */
+
+[hidden]{display:none !important}
+
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans Thai',system-ui,sans-serif;background:var(--bg);
      color:#1b1f1d;-webkit-text-size-adjust:100%;
