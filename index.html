@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b6b3a">
-<title>หนองหินพลัส | แจ้งเรื่องร้องเรียน</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>หนองหินพลัส — พลัง พัฒนา พึ่งได้</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hd">
-  <h1>หนองหินพลัส</h1>
-  <p>ระบบแจ้งเรื่อง–ติดตามสถานะออนไลน์</p>
+<header>
+  <div class="brand">
+    <img src="https://i.ibb.co/fV3XVhmZ/201d10d2-a6fc-4f60-ab7b-8453aa8fe0be.jpg" class="custom-logo" alt="Logo">
+    <div class="brand-text">
+      <h1>หนองหินพลัส — พลัง พัฒนา พึ่งได้</h1>
+      <p>ระบบบริหารจัดการเสียงประชาชนเพื่อการพัฒนาอำเภอหนองหิน จังหวัดเลย</p>
+    </div>
+    <div class="font-zoom-ctrl">
+      <button onclick="setFontZoom('sm')" title="ตัวหนังสือเล็ก">ก-</button>
+      <button onclick="setFontZoom('md')" title="ตัวหนังสือปกติ">ก</button>
+      <button onclick="setFontZoom('lg')" title="ตัวหนังสือใหญ่">ก+</button>
+    </div>
+  </div>
 </header>
 
-<nav class="tabs">
-  <button class="tab active" data-tab="report">แจ้งเรื่อง</button>
-  <button class="tab" data-tab="track">ติดตาม</button>
-  <button class="tab" data-tab="contact">ติดต่อ</button>
+<nav id="nav">
+  <div class="nav-scroll">
+    <button data-v="home" class="active">🏠 หน้าแรก</button>
+    <button data-v="report">📣 เสียงหนองหิน</button>
+    <button data-v="track">🔎 ติดตามเรื่อง</button>
+    <button data-v="idea">💡 หนองหินไอเดีย</button>
+    <button data-v="contact">📞 ติดต่อส่วนราชการ</button>
+    <button data-v="map">🗺️ แผนที่ปัญหา</button>
+    <button data-v="open">📊 ข้อมูลเปิด</button>
+    <button data-v="staff">🔐 เจ้าหน้าที่</button>
+  </div>
 </nav>
 
-<main>
+<main id="app"><div class="loading">กำลังเตรียมพร้อมระบบ…</div></main>
 
-  <section id="report" class="pane active">
-    <form id="caseForm" novalidate>
-      <label>ประเภทเรื่อง <b>*</b>
-        <select name="category" required>
-          <option value="">— กำลังโหลด —</option>
-        </select>
-      </label>
+<button id="botBtn" title="น้องหิน AI">🤖</button>
+<div id="botBox" class="hide">
+  <div class="botHead">
+    <span>🤖 น้องหิน AI ช่วยเหลือ</span>
+    <span id="botClose" style="cursor:pointer;font-size:18px">✕</span>
+  </div>
+  <div id="botMsgs"></div>
+  <div class="botIn">
+    <input id="botInput" placeholder="พิมพ์ข้อความหรือสอบถาม...">
+    <button id="botSend">ส่ง</button>
+  </div>
+</div>
 
-      <label>หัวข้อ <b>*</b>
+<div id="toast" class="hide"></div>
+
+<footer>
+  หนองหินพลัส — พลัง พัฒนา พึ่งได้ • อำเภอหนองหิน จังหวัดเลย<br>
+  “เพื่อการบริการภาครัฐที่เข้าถึงง่าย รวดเร็ว และโปร่งใส”
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
         <input name="title" maxlength="120" placeholder="เช่น ไฟถนนดับ ซอย 5" required>
       </label>
 
