@@ -2,7 +2,7 @@
  *  หนองหินพลัส — Frontend (หน้าประชาชน)
  *  แก้ไขบรรทัดเดียวด้านล่างนี้เท่านั้น
  * =================================================================== */
-const GAS_URL = 'https://script.google.com/macros/s/XXXXXXXXXXXX/exec';   // ← แก้จุดที่ 3
+const GAS_URL = 'https://script.google.com/macros/s/AKfycby_QJJaQWq0VQnN6NjFzSHImcEvzsGXPA9liNSKYkGylIFubtK9udZX-PKUIYR-rsei/exec';   // ← แก้จุดที่ 3
 
 
 /* ---------- CORE ---------- */
