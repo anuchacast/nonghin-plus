@@ -2,7 +2,7 @@
  *  หนองหินพลัส — Admin Dashboard
  *  ใส่ URL เดียวกับใน app.js
  * =================================================================== */
-const GAS_URL = 'https://script.google.com/macros/s/XXXXXXXXXXXX/exec';   // ← แก้จุดที่ 3
+const GAS_URL = 'https://script.google.com/macros/s/AKfycby_QJJaQWq0VQnN6NjFzSHImcEvzsGXPA9liNSKYkGylIFubtK9udZX-PKUIYR-rsei/exec';   // ← แก้จุดที่ 3
 
 
 /* ---------- HELPERS ---------- */
